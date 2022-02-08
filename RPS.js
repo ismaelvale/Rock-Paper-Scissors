@@ -2,7 +2,9 @@ let options = ["rock", "paper", "scissors"];
 function computerPlay () {
     return options[Math.floor(Math.random() * options.length)];
 }
-function round (playerSelection, computerSelection){
+function round (){
+    let playerSelection = prompt("Rock, Paper, or Scissors").toLowerCase;
+    let computerSelection = computerPlay();
     if (playerSelection == "rock" && computerSelection == "paper") {
         return 0;
     } else if (playerSelection == "paper" && computerSelection == "rock") {
@@ -27,14 +29,14 @@ console.log(round("Rock", computerPlay()));
 
 
 
-function game(playerSelection, computerSelection, n) {
+function game() {
     let playerSelection = prompt("Rock, Paper, or Scissors").toLowerCase;
     let computerSelection = computerPlay();
     let score = [];
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < 5; i++) {
         result = round(playerSelection, computerSelection);
         score.push(result);
     }
     return score.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
 }
-console.log(game(playerSelection, computerSelection, 5));
+console.log(game());
