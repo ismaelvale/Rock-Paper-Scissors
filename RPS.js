@@ -23,4 +23,4 @@ function round (playerSelection, computerSelection){
         return "It's a tie!";
     }
 }
-console.log(round("Rock", "Paper"));
+console.log(round("Rock", computerPlay()));
