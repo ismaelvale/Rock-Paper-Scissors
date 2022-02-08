@@ -7,8 +7,7 @@ function computerPlay() {
 }; 
 
        function round() {
-            //let playerSelection = prompt("Rock, Paper, or Scissors").toLowerCase();
-            let playerSelection = "rock";
+            let playerSelection = prompt("Rock, Paper, or Scissors").toLowerCase();
             let computerSelection = computerPlay();
             if (playerSelection == "rock" && computerSelection == "paper") {
                 result -= 1;
