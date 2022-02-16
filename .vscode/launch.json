@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/RPS.js",
-            "console": "integratedTerminal"
+            "outputCapture": "std"
         }
     ]
 }

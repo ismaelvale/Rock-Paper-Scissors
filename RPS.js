@@ -1,48 +1,52 @@
-let result = 0;
-let score =[];
+let container = document.querySelector('#results');
+let playerScore = 0;
+let computerScore = 0;
+
+
+let playerSelection;
+function choose(choice){
+    playerSelection = choice;
+    game();
+};
 
 function computerPlay() {
     let options = ["rock", "paper", "scissors"];
     return options[Math.floor(Math.random() * options.length)];
 }; 
 
-       function round() {
-            let playerSelection = prompt("Rock, Paper, or Scissors").toLowerCase();
-            let computerSelection = computerPlay();
-            if (playerSelection == "rock" && computerSelection == "paper") {
-                result -= 1;
-            } else if (playerSelection == "paper" && computerSelection == "rock") {
-                result += 1;
-            }  else if (playerSelection == "scissors" && computerSelection == "rock") {
-                result -= 1;
-            }  else if (playerSelection == "rock" && computerSelection == "rock") {
-                result += 0;
-            }  else if (playerSelection == "paper" && computerSelection == "paper") {
-                result += 0;
-            }  else if (playerSelection == "scissors" && computerSelection == "paper") {
-                result += 1;
-            }  else if (playerSelection == "rock" && computerSelection == "scissors") {
-                result += 1;
-            }  else if (playerSelection == "paper" && computerSelection == "scissors") {
-                result -= 1;
-            } else if (playerSelection == "scissors" && computerSelection == "scissors") {
-                result += 0;
-            }
-            console.log(`You picked ${playerSelection} and the computer picked ${computerSelection}, so you earned ${result} points.` )
-        return result;
-        };
+function round() {
+    let computerSelection = computerPlay();
+    if (playerSelection == "rock" && computerSelection == "paper") {
+        computerScore++;
+    } else if (playerSelection == "paper" && computerSelection == "rock") {
+        playerScore++;
+    }  else if (playerSelection == "scissors" && computerSelection == "rock") {
+        computerScore++;
+    }  else if (playerSelection == "scissors" && computerSelection == "paper") {
+        playerScore++;
+    }  else if (playerSelection == "rock" && computerSelection == "scissors") {
+        playerScore++;
+    }  else if (playerSelection == "paper" && computerSelection == "scissors") {
+        computerScore++;
+    }
+    container.textContent =`You picked ${playerSelection} and the computer picked ${computerSelection}, so you've won ${playerScore} games, and the computer has won ${computerScore} games.`;
+};
         
-        function game() {
-            for (let i = 0; i < 5; i++) {
-                round();
-                score.push(result);
-            }
-        let final = score.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
-        if (final > 0) {
-            console.log("You Won!")
-        } else {
-            console.log("You Lost!");
-        };
-}
+function game() {
+    let player = document.querySelector('#playerscore');
+    let computer = document.querySelector('#computerscore');
+    round();
+    player.textContent = `Your score: ${playerScore}`;
+    computer.textContent = `Your score: ${computerScore}`;
+    if (playerScore >= 5) {
+        container.textContent = "You Won!"
+        return;
+    } else if (computerScore >= 5) {
+        container.textContent = "You Lost!";
+        return;
+     };
+    };
 
-console.log(game());
+
+
+

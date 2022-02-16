@@ -13,12 +13,21 @@
     <p> During this game, standard Rock, Paper, Scissors (RPS) rules apply. You will choose one of the 3 options by clicking on one of the buttons below and the computer will also choose.
         Results are reported after every round. The first to get 5 points is the winner. Good Luck!
     </p>   
-    <button type="button">Rock<br /><img src = "https://www.outdooressentialproducts.com/-/media/OutdoorEssentialsV3/Products/Landscaping/Landscape-Rocks/SmallRock_Gray_204923.jpg" ></button> 
-     <button type="button">Paper<br /><img src = "https://media.istockphoto.com/vectors/small-note-paper-sheet-vector-id505147453" ></button>
-      <button type="button">Scissors<br /><img src = "https://www.lionop.com/img/productimages/b/SI200P.jpg" ></button> 
-   <div id="results">
-       Results:
+    <div id="buttons">
+    <button type="button" onClick="choose('rock')">Rock<br /><img src = "https://www.outdooressentialproducts.com/-/media/OutdoorEssentialsV3/Products/Landscaping/Landscape-Rocks/SmallRock_Gray_204923.jpg" ></button> 
+     <button type="button" onClick="choose('paper')">Paper<br /><img src = "https://media.istockphoto.com/vectors/small-note-paper-sheet-vector-id505147453" ></button>
+      <button type="button" onClick="choose('scissors')">Scissors<br /><img src = "https://www.lionop.com/img/productimages/b/SI200P.jpg" ></button> 
+      </div>
+      <div id="playerscore">
+          Your Score:
+      </div>
+      <div id="computerscore">
+          Computer Score:
+    </div>
+      <div id="results">
+          Results:
    </div>
+<script rel="Javascript" src="RPS.js" defer></script>
 </body>
-<script rel="Javascript" src="RPS.js"></script>
+
 </html>
